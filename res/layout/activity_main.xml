@@ -14,6 +14,38 @@
     <Space
         android:layout_column="1"
         android:layout_gravity="fill_vertical"
-        android:layout_row="1" />
+        android:layout_row="4" />
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_column="0"
+        android:layout_gravity="left|top"
+        android:layout_row="2"
+        android:text="Enter Name of Player" />
+
+    <Button
+        android:id="@+id/button1"
+        android:layout_column="0"
+        android:layout_gravity="left|center_vertical"
+        android:layout_row="4"
+        android:text="New Game" />
+
+    <EditText
+        android:id="@+id/editText1"
+        android:layout_column="0"
+        android:layout_gravity="left|top"
+        android:layout_row="4"
+        android:ems="10"
+        android:inputType="textPersonName" >
+
+        <requestFocus />
+    </EditText>
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_column="0"
+        android:layout_gravity="center"
+        android:layout_row="4"
+        android:text="Join" />
 
 </GridLayout>

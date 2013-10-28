@@ -10,9 +10,33 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".Waiting" >
 
-    <TextView
+    <ProgressBar
+        android:id="@+id/progressBar1"
         android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <EditText
+        android:id="@+id/EditText03"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/hello_world" />
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Player 1" />
+
+    <EditText
+        android:id="@+id/EditText01"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Player 2" />
+
+    <EditText
+        android:id="@+id/EditText02"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Player 3" />
 
 </LinearLayout>
