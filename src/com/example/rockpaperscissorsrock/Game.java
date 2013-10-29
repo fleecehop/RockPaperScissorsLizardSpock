@@ -3,14 +3,18 @@ package com.example.rockpaperscissorsrock;
 import android.os.Bundle;
 import android.app.Activity;
 import android.view.Menu;
+import android.webkit.WebView;
 
 public class Game extends Activity {
 
 	@Override
-	protected void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_game);
-	}
+	protected void onCreate(Bundle savedInstanceState) { 
+
+		 super.onCreate(savedInstanceState); 
+		 setContentView(R.layout.activity_game); 
+		 WebView w=(WebView) findViewById(R.id.webView1); 
+		 w.loadUrl("file:///android_assets/game.html");
+		}
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {

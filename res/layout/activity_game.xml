@@ -15,4 +15,9 @@
         android:layout_height="wrap_content"
         android:layout_gravity="fill_vertical" />
 
+    <WebView
+        android:id="@+id/webView1"
+        android:layout_width="289dp"
+        android:layout_height="429dp" />
+
 </LinearLayout>
