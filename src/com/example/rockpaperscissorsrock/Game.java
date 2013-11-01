@@ -1,12 +1,14 @@
 package com.example.rockpaperscissorsrock;
 
 import java.io.IOException;
+import java.net.UnknownHostException;
 
 import com.example.javaclient.Client;
 
 import android.os.Bundle;
 import android.app.Activity;
 import android.view.Menu;
+import android.webkit.WebChromeClient;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
@@ -23,25 +25,51 @@ public class Game extends Activity  {
 		 WebView w=(WebView) findViewById(R.id.webView1); 
 		 w.loadUrl("file:///android_assets/game.html");
 		 
+		 
+		
+		 
 		 //create a default webview client
 		 WebViewClient gameClient = new WebViewClient();
+		 
+		 
+		
+		
+		//enable alert()
+		 WebChromeClient alerts=new WebChromeClient();
+		 w.setWebChromeClient(alerts);
+		
+		 int port = 0;
+		 String ip= "";
+		 String playerName= "";
+		 
+		 
 		 //create a new instance of extended client
-		 Client c = new Client();
-		
-		
-		 try {
-			 //hardcode the client name
-			 c.setPlayerName("webPlayer");
-		 } catch (IOException e) {
+		 AndroidClient c;
+		 
+		try {
+			c = new AndroidClient(port,ip,playerName,w);
+		} catch (UnknownHostException e1) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
-		 }
+			e1.printStackTrace();
+		} catch (IOException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		
+		 w.setWebViewClient(new WebViewClient(){
+			 @Override
+			 public void onPageFinished(WebView view,String url){
+				 GameThread t = new GameThread(c);
+				 t.start();
+			 }
+		 });
+		 
 		//add it as a javascript interface to the WebView with global name gameClient
 		 w.addJavascriptInterface(gameClient, "gameClient");
 		
-		 //create a new thread with client instance as argument and start thread
-		GameThread g = new GameThread();
-		g.start(gameClient);
+		//create a new thread with client instance as argument and start thread
+		//GameThread g = new GameThread();
+		//g.start(gameClient);
 		
 
 		}
