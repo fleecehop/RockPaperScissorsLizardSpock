@@ -24,7 +24,12 @@ public class Client implements Runnable {
 	protected String move;
 	protected boolean won=false;
 	protected boolean okToMove=false;
-	private boolean dropped; 
+	private boolean dropped;
+	
+	public Client(){
+		super();
+	}
+	
 	public Client(int port, String ip, String playerName) throws UnknownHostException, IOException{
 		socket = new Socket(ip,port);
 		out=new ObjectOutputStream(socket.getOutputStream());
