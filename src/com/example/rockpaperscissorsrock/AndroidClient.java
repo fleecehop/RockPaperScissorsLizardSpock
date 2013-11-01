@@ -6,6 +6,7 @@ import java.net.Socket;
 import java.net.UnknownHostException;
 
 import android.os.Bundle;
+import android.webkit.JavascriptInterface;
 import android.webkit.WebView;
 
 import com.example.javaclient.Client;

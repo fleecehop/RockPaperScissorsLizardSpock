@@ -168,7 +168,7 @@ public class Client implements Runnable {
 			e.printStackTrace();
 		}
 	}
-	private void setPlayerName(String playerName) throws IOException {
+	public void setPlayerName(String playerName) throws IOException {
 		Message m = new Message("setPlayerName",new String[]{playerName});
 		sendMessage(m);
 	}
