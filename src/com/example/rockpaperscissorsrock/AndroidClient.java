@@ -1,16 +1,9 @@
 package com.example.rockpaperscissorsrock;
 import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
-import java.net.Socket;
 import java.net.UnknownHostException;
-
-import android.os.Bundle;
 import android.webkit.JavascriptInterface;
 import android.webkit.WebView;
-
 import com.example.javaclient.Client;
-import com.example.util.Message;
 
 public class AndroidClient extends Client implements Runnable{
 	WebView clientView;
@@ -39,5 +32,10 @@ public class AndroidClient extends Client implements Runnable{
 	@Override
 	public void sendMove(String move){
 		super.sendMove(move);
+	}
+
+	public void start() {
+		// TODO Auto-generated method stub
+		
 	}
 }

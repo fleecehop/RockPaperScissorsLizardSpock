@@ -14,7 +14,8 @@ import android.webkit.WebViewClient;
 
 public class Game extends Activity  {
 
-	
+	 //create a new instance of extended client
+	 AndroidClient c;
 	
 	
 	@Override
@@ -43,8 +44,7 @@ public class Game extends Activity  {
 		 String playerName= "";
 		 
 		 
-		 //create a new instance of extended client
-		 AndroidClient c;
+	
 		 
 		try {
 			c = new AndroidClient(port,ip,playerName,w);
@@ -59,8 +59,8 @@ public class Game extends Activity  {
 		 w.setWebViewClient(new WebViewClient(){
 			 @Override
 			 public void onPageFinished(WebView view,String url){
-				 GameThread t = new GameThread(c);
-				 t.start();
+				 //GameThread t = new GameThread( c);
+				 c.start();
 			 }
 		 });
 		 
@@ -73,19 +73,8 @@ public class Game extends Activity  {
 		
 
 		}
-	public class GameThread extends Thread {
-
-	    public void run(WebViewClient gameClient) {
-	        
-	    }
-
-		public void start(WebViewClient gameClient) {
-			// TODO Auto-generated method stub
-			run(gameClient);
-		}
-
-	}
 	
+	 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
@@ -93,4 +82,20 @@ public class Game extends Activity  {
 		return true;
 	}
 
+}
+
+class GameThread implements Runnable 
+{
+    GameThread(AndroidClient c) 
+    {}
+    
+    public void start() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void run ( ) 
+    {
+        
+    }
 }
