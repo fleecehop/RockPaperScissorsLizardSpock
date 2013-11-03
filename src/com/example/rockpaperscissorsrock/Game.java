@@ -3,8 +3,6 @@ package com.example.rockpaperscissorsrock;
 import java.io.IOException;
 import java.net.UnknownHostException;
 
-import com.example.javaclient.Client;
-
 import android.os.Bundle;
 import android.app.Activity;
 import android.view.Menu;
@@ -59,8 +57,9 @@ public class Game extends Activity  {
 		 w.setWebViewClient(new WebViewClient(){
 			 @Override
 			 public void onPageFinished(WebView view,String url){
-				 //GameThread t = new GameThread( c);
-				 c.start();
+				 //start the Android client on its own thread
+				 Thread thread = new Thread(c);
+				 thread.start();
 			 }
 		 });
 		 
@@ -68,8 +67,7 @@ public class Game extends Activity  {
 		 w.addJavascriptInterface(gameClient, "gameClient");
 		
 		//create a new thread with client instance as argument and start thread
-		//GameThread g = new GameThread();
-		//g.start(gameClient);
+
 		
 
 		}
@@ -84,18 +82,4 @@ public class Game extends Activity  {
 
 }
 
-class GameThread implements Runnable 
-{
-    GameThread(AndroidClient c) 
-    {}
-    
-    public void start() {
-		// TODO Auto-generated method stub
-		
-	}
 
-	public void run ( ) 
-    {
-        
-    }
-}
